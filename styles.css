@@ -612,7 +612,7 @@ body.loading {
 .about-bg {
   position: absolute;
   inset: 0;
-  background: url('assets/images/me.jpg') center/cover no-repeat;
+  background: url('assets/images/ME.jpg') center/cover no-repeat;
   filter: brightness(1); /* fully bright, always visible */
   z-index: 0;
   pointer-events: none;
