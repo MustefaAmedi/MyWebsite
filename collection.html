@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Collection — Mustefa Amedi</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- 3D-Futuristic Loading Screen -->
+<div id="loader">
+  <canvas id="loader-canvas"></canvas>
+  <div class="loader-text">Preparing the Scene...</div>
+</div>
+
+
+
+
+  <!-- Background grid + cursor glow -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="eye-logo" aria-hidden="true"></span>
+      <span class="brand-text">Mustefa<span class="accent">Amedi</span></span>
+      <span class="role">3D Artist</span>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html" class="btn btn-outline">Home</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="glitch">
+        <span aria-hidden="true">My Collection.</span>
+        My Collection
+        <span aria-hidden="true">My Collection.</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Collection Grid -->
+  <section class="viewports">
+    <!-- Add more Instagram embeds here in the same pattern -->
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span>© 2025 Mustefa Amedi</span>
+  </footer>
+<script>
+async function loadPosts() {
+  const container = document.querySelector('.viewports');
+  const loader = document.getElementById('loader');
+
+  // Disable scrolling and interactions
+  document.body.classList.add('loading');
+
+  const response = await fetch('assets/posts.txt');
+  const text = await response.text();
+
+  let urls = text.split(/\r?\n/).filter(line => line.trim() !== "");
+  urls = urls.reverse();
+
+  const iframePromises = urls.map(url => {
+    return new Promise(resolve => {
+      const card = document.createElement('article');
+      card.className = 'post-card';
+
+      const header = document.createElement('header');
+      header.className = 'post-bar';
+      card.appendChild(header);
+
+      const canvas = document.createElement('div');
+      canvas.className = 'post-canvas';
+
+      let embedUrl = url.endsWith('/embed') ? url : (url.replace(/\/$/, '') + '/embed');
+
+      const iframe = document.createElement('iframe');
+      iframe.src = embedUrl;
+      iframe.frameBorder = '0';
+      iframe.scrolling = 'no';
+      iframe.allowTransparency = 'true';
+
+      iframe.onload = () => resolve();
+
+      canvas.appendChild(iframe);
+      card.appendChild(canvas);
+      container.appendChild(card);
+    });
+  });
+
+  // Wait for all iframes to finish loading
+  await Promise.all(iframePromises);
+
+  // Fade out loader and re-enable scrolling
+  loader.classList.add('fade-out');
+  document.body.classList.remove('loading');
+}
+
+/* 3D-style floating particles */
+function initParticles() {
+  const canvas = document.getElementById('loader-canvas');
+  const ctx = canvas.getContext('2d');
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  const particles = [];
+  const particleCount = 60;
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: Math.random() * 2 + 1,
+      speed: Math.random() * 0.5 + 0.2,
+      alpha: Math.random() * 0.5 + 0.3
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    particles.forEach(p => {
+      p.y -= p.speed;
+      if (p.y < -5) {
+        p.y = height + 5;
+        p.x = Math.random() * width;
+      }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 59, 59, ${p.alpha})`;
+      ctx.shadowColor = 'rgba(255,59,59,0.8)';
+      ctx.shadowBlur = 8;
+      ctx.fill();
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+}
+
+// Initialize everything
+window.addEventListener('DOMContentLoaded', () => {
+  initParticles();
+  loadPosts();
+});
+</script>
+</body>
+</html>

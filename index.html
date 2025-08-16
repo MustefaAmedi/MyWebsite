@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mustefa Amedi — 3D Artist</title>
+  <meta name="description" content="Portfolio of Mustefa Amedi — 3D artist, 3D generalist, and video editor." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient grid + glow -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Home">
+      <span class="eye-logo" aria-hidden="true"></span>
+      <span class="brand-text">Mustefa<span class="accent">Amedi</span></span>
+      <span class="role">3D Artist</span>
+    </a>
+
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#contact" class="btn btn-outline">Contact</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="glitch">
+          <span aria-hidden="true">Where imagination becomes geometry.</span>
+          Where imagination becomes geometry.
+          <span aria-hidden="true">Where imagination becomes geometry.</span>
+        </h1>
+        <p class="tagline">Cinematic 3D visuals with taste. Viewport to final frame.</p>
+
+        <div class="cta-row">
+          <a href="collection.html" class="btn btn-primary">My Collection</a>
+          <a href="#contact" class="btn btn-soft">Let’s Work</a>
+        </div>
+
+<!-- Viewport triptych -->
+<div class="viewports">
+  <article class="viewport-card reveal">
+    <header class="viewport-bar">
+      <div class="dots" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span class="title">Viewport&nbsp;01</span>
+    </header>
+    <div class="viewport-canvas">
+      <div class="axes" aria-hidden="true">
+        <span class="x">X</span><span class="y">Y</span><span class="z">Z</span>
+      </div>
+      <img src="assets/images/card1.jpg" alt="Viewport 01" class="viewport-img">
+    </div>
+    <footer class="meta">
+      <span>Architectural • Large-Scale Projects • Concept Design</span>
+    </footer>
+  </article>
+
+  <article class="viewport-card reveal">
+    <header class="viewport-bar">
+      <div class="dots" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span class="title">Viewport&nbsp;02</span>
+    </header>
+    <div class="viewport-canvas">
+      <div class="axes" aria-hidden="true">
+        <span class="x">X</span><span class="y">Y</span><span class="z">Z</span>
+      </div>
+      <img src="assets/images/card2.jpg" alt="Viewport 02" class="viewport-img">
+    </div>
+    <footer class="meta">
+      <span>3D Scene • Top View • Calm Mood</span>
+    </footer>
+  </article>
+
+  <article class="viewport-card reveal">
+    <header class="viewport-bar">
+      <div class="dots" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span class="title">Viewport&nbsp;03</span>
+    </header>
+    <div class="viewport-canvas">
+      <div class="axes" aria-hidden="true">
+        <span class="x">X</span><span class="y">Y</span><span class="z">Z</span>
+      </div>
+      <img src="assets/images/card3.jpg" alt="Viewport 03" class="viewport-img">
+    </div>
+    <footer class="meta">
+      <span>Squid Game • Visualization • Recreation</span>
+    </footer>
+  </article>
+</div>
+
+
+    <!-- Before/After slider -->
+    <section id="compare" class="compare reveal">
+      <h2>Viewport vs. Render</h2>
+
+      <div class="compare-cards">
+        <!-- Vertical card -->
+        <div class="split-wrap vertical-card" data-label-left="Wireframe" data-label-right="Render" data-orientation="vertical">
+          <div class="split left-layer" style="background-image: url('assets/images/viewport.jpg');"></div>
+          <div class="split right-layer" style="background-image: url('assets/images/render.jpg');"></div>
+          <div class="handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="handle-dot"></span>
+          </div>
+        </div>
+
+        <!-- Horizontal card -->
+        <div class="split-wrap horizontal-card" data-label-left="Wireframe" data-label-right="Render" data-orientation="horizontal">
+          <div class="split left-layer" style="background-image: url('assets/images/viewport2.jpg');"></div>
+          <div class="split right-layer" style="background-image: url('assets/images/render2.jpg'); clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);"></div>
+          <div class="handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="handle-dot"></span>
+          </div>
+        </div>
+
+                <!-- Horizontal card -->
+        <div class="split-wrap horizontal-card" data-label-left="Wireframe" data-label-right="Render" data-orientation="horizontal">
+          <div class="split left-layer" style="background-image: url('assets/images/viewport3.jpg');"></div>
+          <div class="split right-layer" style="background-image: url('assets/images/render3.jpg'); clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);"></div>
+          <div class="handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="handle-dot"></span>
+          </div>
+        </div>
+
+      <!-- Horizontal card -->
+      <div class="split-wrap horizontal-card" data-label-left="Wireframe" data-label-right="Render" data-orientation="horizontal">
+        
+        <!-- Left video -->
+        <div class="split left-layer">
+          <video autoplay muted loop playsinline preload="auto" style="width:100%; height:100%; object-fit: cover;">
+            <source src="assets/images/viewport4s.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Right video -->
+        <div class="split right-layer" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
+          <video autoplay muted loop playsinline preload="auto" style="width:100%; height:100%; object-fit: cover;">
+            <source src="assets/images/render4s.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Handle -->
+        <div class="handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <span class="handle-dot"></span>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about reveal">
+      <div class="about-bg"></div> <!-- animated background -->
+      <div class="about-inner">
+        <h2>About</h2>
+        <p>
+          I’m Mustefa Amedi — a 3D artist & video creator.
+          I craft worlds, design surfaces, and light scenes that tell stories. Tools: Blender, After Effects, and anything that makes every pixel perfect.
+        </p>
+        <ul class="badges">
+          <li>#HardSurface</li>
+          <li>#LookDev</li>
+          <li>#Animation</li>
+          <li>#Compositing</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact reveal">
+      <h2>Contact</h2>
+      <p>Have a project in mind? Let’s make something memorable.</p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:mustefa219@gmail.com">Email</a>
+        <a class="btn btn-outline" href="https://instagram.com/Mustefa219" target="_blank" rel="noopener">Instagram @Mustefa219</a>
+      </div>
+      <form class="lite-form" action="mailto:mustefa219@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Email address" required />
+        <textarea name="message" placeholder="Tell me about your project…" rows="4" required></textarea>
+        <button class="btn btn-soft" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> MUSTEFA AMEDI </span>
+  <span class="sep">•</span>
+  <span><span id="clock"></span></span>
+</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
